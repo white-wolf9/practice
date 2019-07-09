@@ -4,10 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.lti.enums.CardTypes;
 
 @Entity
+@Table(name = "TBL_PROJ_CARD")
 public class Card {
 	
 	@Id
@@ -19,4 +23,9 @@ public class Card {
 	private int month;
 	private int year;
 	private CardTypes type;
+	
+
+	@OneToOne
+	@JoinColumn(name = "U_ID")
+	private User user;
 }
